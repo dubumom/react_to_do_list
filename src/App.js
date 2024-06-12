@@ -16,8 +16,8 @@ function App() {
 
   const getTodoList = ()=>{
     const todoListFromStorage = window.localStorage.getItem('todo');
-    //console.log(todoListFromStorage);
-    if(todoListFromStorage !== null){ //값이 있으면
+    console.log(todoListFromStorage);
+    if(todoListFromStorage !== null && todoListFromStorage !== '[]'){ //값이 있으면
       const todoObj = JSON.parse(todoListFromStorage);  
       //console.log(todoObj[todoObj.length-1].id);
       setTodo(todoObj)
@@ -61,7 +61,7 @@ function App() {
     window.localStorage.setItem('todo',todoStr);
   }
   useEffect(()=>{
-   getTodoList();    
+    getTodoList();    
   },[]); //최초 한번만 작동
 
   useEffect(()=>{
